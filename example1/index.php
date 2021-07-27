@@ -52,7 +52,7 @@
         echo $value . "</br>";
         $value = "Teste";
     }
-    
+
     //retira o & de $value
     unset($value);
 
@@ -60,6 +60,31 @@
     foreach($array2 as $key => $value){
         echo $key . "->" . $value . "</br>";
     }
+
+    echo "</br>";
+    function par_ou_impar (int $num){
+        $resto = $num % 2;
+        if($resto == 0){
+            return "Par";
+        } else {
+            return "Impar";
+        }
+    }
+    echo par_ou_impar(3) . "</br>";
+    echo par_ou_impar(2) . "</br>";
+
+    //Não poderá compilar pois $num está tipado como inteiro
+    // echo par_ou_impar("sad") . "</>"; 
+
+    echo "</br>";
+
+    //Testando alterar o comportamento default de variaveis (escopo)
+    $sum = "Teste";
+    function somar(int $numA, int $numB){
+        global $sum;
+        return $sum = "Teste funcao";
+    }
+    echo somar(2, 2);
     ?>
 </body>
 </html>
