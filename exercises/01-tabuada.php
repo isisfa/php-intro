@@ -8,13 +8,14 @@
 </head>
 <body>
     <?php
-    function calculaTabuada(int $numACalcular) {
+    function imprimeTabuada(int $numACalcular) {
         for($i = 1; $i < 11; $i++){
             $resultado = $numACalcular * $i;
-            echo $numACalcular . " X " . $i . " = " . $resultado . "</br>";
+            //echo $numACalcular . " X " . $i . " = " . $resultado . "</br>";
+            echo "$numACalcular X  $i = $resultado" . "</br>";
         }
     }
-    calculaTabuada(2)
+    imprimeTabuada(2);
     ?>
 </body>
 </html>
