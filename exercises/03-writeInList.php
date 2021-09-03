@@ -8,13 +8,12 @@
 </head>
 <body>
     <?php
-    function writeInLists(string $word) {
-        echo "  ◦  " . $word . "</br>";
-        echo "  ◦  " . $word . " " . $word . "</br>";
-        echo "  ◦  " . $word . " " . $word . " " . $word . "</br>";
-        echo "  ◦  " . $word . " " . $word . " " . $word . " " . $word . "</br>";
+    function writeInLists(string $word, int $n_vezes) {
+        for ($i = 1; $i <= $n_vezes; $i++) {
+            echo str_repeat($word. " ", $i) . '</br>'
+        }
     }
-    writeInLists("isis");
+    writeInLists("PHP");
     ?>
 </body>
 </html>
