@@ -10,13 +10,14 @@
     <?php
     function calculaMediaDeArray(array $arrayDeElementos){
         if (count($arrayDeElementos) == 10) {
-         echo $mediaDeArray = array_sum($arrayDeElementos) / count($arrayDeElementos);
+        $mediaDeArray = array_sum($arrayDeElementos) / count($arrayDeElementos);
+        echo "A média é " . $mediaDeArray;
         } else {
             echo "Array Inválido! Insira um array com 10 elementos";
         }
 
     }
-    calculaMediaDeArray([5,10,0,0,0,0,0,0,0])
+    calculaMediaDeArray([5,10,0,0,0,0,0,0,0,0])
     ?>
 </body>
 </html>
