@@ -4,6 +4,9 @@ declare(strict_types=1);
 
 class Produto
 {
+    /**
+     * @var PDO
+     */
     private $conexao;
 
     public function __construct()
@@ -16,48 +19,49 @@ class Produto
         }
     }
 
-    public function list() : void
+    public function list() : array
     {
         $sql = 'select * from produtos';
 
-        echo '<h3>Produtos</h3>';
+        $produtos = [];
 
         foreach ($this->conexao->query($sql) as $key => $value) {
-            echo 'Id: ' . $value['id'] . '<br> Descrição: ' . $value['descricao'] . '<hr>';
+            array_push($produtos, $value);
         }
+        return $produtos;
     }
 
-    public function insert() : int
+    public function insert(string $descricao) : int
     {
         $sql = 'insert into produtos(descricao) values(?)';
 
         $prepare = $this->conexao->prepare($sql);
-        $prepare->bindParam(1, $_GET['descricao']);
+        $prepare->bindParam(1, $descricao);
         $prepare->execute();
 
         return $prepare->rowCount(); //declara linhas afetadas
     }
 
-    public function update() : int
+    public function update(string $descricao, int $id) : int
     {
         $sql = 'update produtos set descricao = ? where id = ?';
 
         $prepare = $this->conexao->prepare($sql);
-        $prepare->bindParam(1, $_GET['descricao']);
-        $prepare->bindParam(2, $_GET['id']);
+        $prepare->bindParam(1, $descricao);
+        $prepare->bindParam(2, $id);
 
         $prepare->execute();
 
         return $prepare->rowCount(); //declara linhas afetadas
     }
 
-    public function delete() : int
+    public function delete(int $id) : int
     {
         $sql = 'delete from produtos where id = ?';
 
         $prepare = $this->conexao->prepare($sql);
 
-        $prepare->bindParam(1, $_GET['id']);
+        $prepare->bindParam(1, $id);
         $prepare->execute();
 
         return $prepare->rowCount(); //declara linhas afetadas
