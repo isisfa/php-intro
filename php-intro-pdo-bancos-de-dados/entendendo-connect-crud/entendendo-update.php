@@ -11,4 +11,4 @@ $prepare->bindParam(2, $_GET['id']);
 
 $prepare->execute();
 
-echo $prepare->rowCount(); //declara linhas afetadas
+return $prepare->rowCount(); //declara linhas afetadas

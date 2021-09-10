@@ -9,4 +9,4 @@ $prepare = $pdo->prepare($sql);
 $prepare->bindParam(1, $_GET['descricao']);
 $prepare->execute();
 
-echo $prepare->rowCount(); //declara linhas afetadas
+return $prepare->rowCount(); //declara linhas afetadas
