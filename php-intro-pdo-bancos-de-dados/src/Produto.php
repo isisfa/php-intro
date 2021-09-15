@@ -12,7 +12,7 @@ class Produto
     public function __construct()
     {
         try {
-            $this->conexao = new PDO('mysql:host=mysql;dbname=exemplo', 'root', '12345');
+            $this->conexao = new PDO('mysql:host=localhost;dbname=exemplo', 'root', '');
         } catch (Exception $e) {
             echo $e->getMessage();
             die();
